@@ -20,15 +20,24 @@ const config: StorybookConfig = {
         projects: [path.resolve(path.dirname(__dirname), "tsconfig.app.json")],
       })
     );
+
     return {
       ...config,
       css: {
+        ...config.css,
+        preprocessorOptions: {
+          css: {
+            charset: false,
+          },
+        },
         modules: {
           generateScopedName: "[name]__[local]___[hash:base64:5]",
           scopeBehaviour: "local",
+          globalModulePaths: [/global\.css$/],
         },
       },
     };
   },
 };
+
 export default config;
