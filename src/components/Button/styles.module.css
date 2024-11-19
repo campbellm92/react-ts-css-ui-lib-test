@@ -1,3 +1,37 @@
-button {
-  background-color: aqua;
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none; /* For outline buttons, we'll override this */
+}
+
+.button-primary {
+  background-color: var(--primary);
+  color: var(--text-secondary);
+}
+
+.button-secondary {
+  background-color: var(--secondary);
+  color: var(--text-primary);
+}
+
+.button-outline {
+  background-color: inherit;
+  border: 2px solid var(--primary);
+}
+
+.button-small {
+  padding: 4px 8px;
+}
+
+.button-medium {
+  padding: 8px 16px;
+}
+
+.button-large {
+  padding: 12px 24px;
 }
