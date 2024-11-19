@@ -2,6 +2,11 @@
 
 :root {
   --font-family: "Rubik", sans-serif;
+  --primary: #5a43f4;
+  --secondary: #f5db33;
+  --accent: #757153;
+  --text-primary: #43424b;
+  --text-secondary: #e0e0e0;
 }
 
 * {
