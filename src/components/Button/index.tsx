@@ -1,8 +1,34 @@
 import { ComponentProps } from "react";
-import "./styles.module.css";
+import styles from "./styles.module.css";
 
-type ButtonProps = ComponentProps<"button">;
+type ButtonProps = ComponentProps<"button"> & {
+  variant?: "primary" | "secondary" | "outline";
+  size?: "small" | "medium" | "large"; // Add this line
+  isLoading?: boolean;
+};
 
-export const Button = ({ ...props }: ButtonProps) => {
-  return <button {...props} />;
+export const Button = ({
+  variant = "primary",
+  size = "medium",
+  isLoading = false,
+  ...props
+}: ButtonProps) => {
+  const className = [
+    styles.button,
+    styles[`button-${variant}`], // Use `styles` for the variant
+    styles[`button-${size}`], // Use `styles` for the size
+    props.className, // Allow additional custom classes
+  ]
+    .filter(Boolean) // Remove any undefined or falsy values
+    .join(" ");
+
+  return (
+    <button
+      {...props}
+      className={className}
+      disabled={isLoading || props.disabled}
+    >
+      {isLoading ? <span className="spinner"></span> : props.children}
+    </button>
+  );
 };
