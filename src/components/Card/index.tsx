@@ -2,7 +2,7 @@ import { ComponentProps } from "react";
 import styles from "./styles.module.css";
 
 type CardProps = ComponentProps<"div"> & {
-  variant?: "basic-primary" | "basic-secondary";
+  variant?: "basic-primary" | "basic-secondary" | "outline-primary" | "outline-secondary"
   image?: React.ReactNode;
   title?: string;
   content?: string | React.ReactNode;
