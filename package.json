@@ -1,19 +1,37 @@
 {
-  "name": "ui-lib-tute",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "@test-lib-typescript-react",
+  "version": "0.1.0",
+  "description": "A test UI library built with TypeScript and React",
+  "main": "dist/test-lib-typescript-react.cjs.js",
+  "module": "dist/test-lib-typescript-react.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "ui-library",
+    "typescript",
+    "react",
+    "storybook",
+    "css-modules"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/test-lib-typescript-react"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.0 <19.0.0",
+    "react-dom": ">=17.0.0 <19.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "build-storybook": "storybook build",
+    "test": "vitest"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -44,5 +62,11 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/test-lib-typescript-react.es.js",
+      "require": "./dist/test-lib-typescript-react.cjs.js"
+    }
   }
 }
