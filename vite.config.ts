@@ -10,4 +10,22 @@ export default defineConfig({
       globalModulePaths: [/global\.css$/], // Add this line
     },
   },
+  build: {
+    lib: {
+      entry: "src/index.tsx",
+      name: "MyUILibrary",
+      formats: ["es", "cjs"],
+      fileName: (format) => `my-ui-library.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
+    cssCodeSplit: true,
+  },
 });
