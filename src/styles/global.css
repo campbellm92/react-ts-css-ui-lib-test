@@ -9,6 +9,9 @@
   --text-secondary: #e0e0e0;
 }
 
+[data-theme="dark"] {
+}
+
 * {
   font-family: var(--font-family);
 }
