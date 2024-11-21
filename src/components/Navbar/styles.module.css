@@ -1,19 +1,13 @@
+/* Common navbar styles */
 .navbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   background-color: var(--primary);
   padding: 1rem;
 }
 
-.navbar-basic {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.navbar-basic ul {
+.navbar ul {
   display: flex;
   gap: 2rem;
   list-style: none;
@@ -21,28 +15,40 @@
   padding: 0;
 }
 
-.navbar-basic li a {
+.navbar li a {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 600;
 }
 
-.navbar-with-branding ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-with-branding li a {
-  text-decoration: none;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.navbar-with-branding .logo {
+.navbar .logo {
   margin-right: 1rem;
   color: var(--text-secondary);
   font-weight: 800;
+}
+
+/* Variant-specific styles */
+.navbar-basic {
+  justify-content: flex-end;
+}
+
+.navbar-with-branding {
+  justify-content: space-between;
+}
+
+.navbar-with-branding-sticky {
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-with-branding-sticky-fade {
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-with-branding-sticky-fade.scrolled {
+  background-color: rgba(90, 67, 244, 0.8); /* Solid color after scrolling */
+  color: var(--text-secondary);
 }
