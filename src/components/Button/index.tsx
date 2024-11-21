@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 type ButtonProps = ComponentProps<"button"> & {
   variant?: "primary" | "secondary" | "outline";
-  size?: "small" | "medium" | "large"; // Add this line
+  size?: "small" | "medium" | "large"; 
   isLoading?: boolean;
 };
 
