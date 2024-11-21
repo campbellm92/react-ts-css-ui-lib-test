@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 type NavItem = {
@@ -7,7 +7,11 @@ type NavItem = {
 };
 
 type NavbarProps = ComponentProps<"nav"> & {
-  variant?: "basic" | "with-branding";
+  variant?:
+    | "basic"
+    | "with-branding"
+    | "with-branding-sticky"
+    | "with-branding-sticky-fade";
   navItems?: NavItem[];
   logo?: React.ReactNode;
 };
@@ -18,7 +22,25 @@ export const Navbar = ({
   logo,
   ...props
 }: NavbarProps) => {
-  const className = [styles.navbar, styles[`navbar-${variant}`]].join(" ");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (variant === "with-branding-sticky-fade") {
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 50);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [variant]);
+
+  const className = [
+    styles.navbar,
+    styles[`navbar-${variant}`],
+    scrolled && variant === "with-branding-sticky-fade" ? styles.scrolled : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <nav {...props} className={className}>
