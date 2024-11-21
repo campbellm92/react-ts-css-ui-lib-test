@@ -46,3 +46,55 @@ export const WithBranding: Story = {
     ],
   },
 };
+
+export const WithBrandingSticky: Story = {
+  args: {
+    variant: "with-branding-sticky",
+    logo: "BRAND",
+    navItems: [
+      { label: "Services", href: "/services" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          height: "200vh",
+          backgroundColor: "#f0f0f0",
+        }}
+      >
+        <Story />
+        <div style={{ padding: "2rem", textAlign: "center" }}>
+          Scroll down to test the sticky navbar.
+        </div>
+      </div>
+    ),
+  ],
+};
+
+export const WithBrandingStickyFade: Story = {
+  args: {
+    variant: "with-branding-sticky-fade",
+    logo: "BRAND",
+    navItems: [
+      { label: "Services", href: "/services" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          height: "200vh",
+          backgroundColor: "#f0f0f0",
+        }}
+      >
+        <Story />
+        <div style={{ padding: "2rem", textAlign: "center" }}>
+          Scroll down to test the sticky navbar.
+        </div>
+      </div>
+    ),
+  ],
+};
